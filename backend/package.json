@@ -10,8 +10,11 @@
   "author": "Sergey Nikolaychuk",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.3"
+    "express-validator": "^6.4.0",
+    "nodemon": "^2.0.3",
+    "uuid": "^7.0.3"
   }
 }
