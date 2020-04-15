@@ -1,8 +1,10 @@
 const uuid = require("uuid/v4");
 const { validationResult } = require("express-validator");
 const HttpError = require("../models/http-error");
+const mongoose = require("mongoose");
 const getCoordsForAddress = require("../util/location");
 const Place = require("../models/place");
+const User = require("../models/user");
 
 const getPlaceById = async (req, res, next) => {
   const placeId = req.params.pid;
@@ -58,9 +60,28 @@ const createPlace = async (req, res, next) => {
       "https://sun9-21.userapi.com/c543106/v543106223/64a1e/_UTpjDzILqc.jpg",
     creator,
   });
+
+  let user;
+
   try {
-    await createdPlace.save();
-    console.log("Saved new place!");
+    user = await User.findById(creator);
+  } catch (err) {
+    return next(new HttpError("Creating places failed", 500));
+  }
+
+  if (!user) {
+    return next(new HttpError("Could not find user for id", 404));
+  }
+  console.log(user);
+
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await createdPlace.save({ session: sess });
+    user.places.push(createdPlace);
+    await user.save({ session: sess });
+
+    await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError("Creating place failed", 500);
     return next(error);
@@ -97,13 +118,23 @@ const deletePlace = async (req, res, next) => {
   const placeId = req.params.pid;
   let place;
   try {
-    place = await Place.findById(placeId);
+    place = await Place.findById(placeId).populate("creator");
   } catch (err) {
-    return next(new HttpError("Could not find place to delete", 500));
+    return next(new HttpError("Could not delete place", 500));
+  }
+
+  if (!place) {
+    return next(new HttpError("Could not find place to delete", 404));
   }
 
   try {
-    place.remove();
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+
+    await place.remove({ session: sess });
+    place.creator.places.pull(place);
+    await place.creator.save({ session: sess });
+    sess.commitTransaction();
   } catch (err) {
     return next(new HttpError("Could not delete place", 500));
   }
