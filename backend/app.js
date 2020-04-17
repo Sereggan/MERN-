@@ -8,7 +8,7 @@ const usersRoutes = require("./routes/users-routes");
 const HttpError = require("./models/http-error");
 
 const connectUrl =
-  "mongodb+srv://sergey:sergey@cluster0-3ajbz.mongodb.net/places?retryWrites=true&w=majority";
+  "mongodb+srv://sergey:sergey@cluster0-3ajbz.mongodb.net/mern?retryWrites=true&w=majority";
 const connectConfig = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -18,6 +18,16 @@ const connectConfig = {
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-WIth, Content-Type, Accept, Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Header", "GET,POST,PATCH,DELETE");
+  next();
+});
 
 app.use("/api/places", placesRoutes);
 app.use("/api/users", usersRoutes);
