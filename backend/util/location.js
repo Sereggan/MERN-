@@ -1,31 +1,31 @@
-const axios = require("axios");
-const HttpError = require("../models/http-error");
-const API_KEY = "pk.9e77aa73539e1217d8cfd1d5e98dd689";
+const axios = require('axios');
+
+const HttpError = require('../models/http-error');
+
+const API_KEY = 'AIzaSyDgLmMpKCzveJf1_yuA0fUzzhy0WRChvZA';
+
 async function getCoordsForAddress(address) {
+  // return {
+  //   lat: 40.7484474,
+  //   lng: -73.9871516
+  // };
   const response = await axios.get(
-    `https://us1.locationiq.com/v1/search.php?key=${API_KEY}&q=${encodeURIComponent(
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
       address
-    )}&format=json`
+    )}&key=${API_KEY}`
   );
 
-  const data = response.data[0];
+  const data = response.data;
 
-  console.log(data);
-
-  if (!data || data.status === "ZERO_RESULTS") {
+  if (!data || data.status === 'ZERO_RESULTS') {
     const error = new HttpError(
-      "Could not find location for the specified address.",
+      'Could not find location for the specified address.',
       422
     );
     throw error;
   }
 
-  const coorLat = data.lat;
-  const coorLon = data.lon;
-  const coordinates = {
-    lat: coorLat,
-    lng: coorLon,
-  };
+  const coordinates = data.results[0].geometry.location;
 
   return coordinates;
 }
