@@ -1,0 +1,86 @@
+[debug] [2020-05-03T16:55:39.563Z] ----------------------------------------------------------------------
+[debug] [2020-05-03T16:55:39.566Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sergey\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-05-03T16:55:39.566Z] CLI Version:   7.12.1
+[debug] [2020-05-03T16:55:39.566Z] Platform:      win32
+[debug] [2020-05-03T16:55:39.566Z] Node Version:  v12.13.1
+[debug] [2020-05-03T16:55:39.567Z] Time:          Sun May 03 2020 19:55:39 GMT+0300 (GMT+03:00)
+[debug] [2020-05-03T16:55:39.567Z] ----------------------------------------------------------------------
+[debug] [2020-05-03T16:55:39.567Z] 
+[debug] [2020-05-03T16:55:39.578Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-03T16:55:39.578Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Портфолио\MERN\frontend
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project.
+[debug] [2020-05-03T16:56:42.050Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-05-03T16:56:42.050Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-05-03T16:56:42.387Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:42.405Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+
+[debug] [2020-05-03T16:56:43.769Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:43.773Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8305335178995434991  
+ 
+[debug] [2020-05-03T16:56:44.960Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:45.463Z] [Project Creation Poller] Retrying task index 0
+[debug] [2020-05-03T16:56:45.464Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8305335178995434991  
+ 
+[debug] [2020-05-03T16:56:46.710Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:47.712Z] [Project Creation Poller] Retrying task index 0
+[debug] [2020-05-03T16:56:47.713Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8305335178995434991  
+ 
+[debug] [2020-05-03T16:56:48.992Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:48.996Z] >>> HTTP REQUEST POST https://firebase.googleapis.com/v1beta1/projects/mern-app-udemy:addFirebase  
+ 
+[debug] [2020-05-03T16:56:52.483Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:52.485Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/NzZmMWYxZjItYzgzNy00MGYzLWJiOWMtNjVmNDMyM2I5YTYy  
+ 
+[debug] [2020-05-03T16:56:53.430Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:53.932Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2020-05-03T16:56:53.932Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/NzZmMWYxZjItYzgzNy00MGYzLWJiOWMtNjVmNDMyM2I5YTYy  
+ 
+[debug] [2020-05-03T16:56:54.751Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:55.752Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2020-05-03T16:56:55.752Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/NzZmMWYxZjItYzgzNy00MGYzLWJiOWMtNjVmNDMyM2I5YTYy  
+ 
+[debug] [2020-05-03T16:56:56.490Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:56:58.493Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2020-05-03T16:56:58.504Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/NzZmMWYxZjItYzgzNy00MGYzLWJiOWMtNjVmNDMyM2I5YTYy  
+ 
+[debug] [2020-05-03T16:56:59.203Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-03T16:57:03.206Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2020-05-03T16:57:03.206Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/NzZmMWYxZjItYzgzNy00MGYzLWJiOWMtNjVmNDMyM2I5YTYy  
+ 
+[debug] [2020-05-03T16:57:04.041Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Your Firebase project is ready! ===
+[info] 
+[info] Project information:
+[info]    - Project ID: mern-app-udemy
+[info]    - Project Name: mern-app-udemy
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/mern-app-udemy/overview
+[info] i  Using project mern-app-udemy (mern-app-udemy)
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

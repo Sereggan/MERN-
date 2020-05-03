@@ -49,11 +49,12 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://sergey:sergey@cluster0-3ajbz.mongodb.net/mern?retryWrites=true&w=majority`,
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-3ajbz.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     { useNewUrlParser: true }
   )
   .then(() => {
-    app.listen(5000);
+    console.log("connected to db");
+    app.listen(process.env.PORT || 5000);
   })
   .catch((err) => {
     console.log(err);
